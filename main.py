@@ -15,6 +15,7 @@ print(stick.get_numbuttons())
 # event.init(, 11)
 x=0
 y=0
+last_state=[0,0]
 slow_factor=.1
 threshold=.1*slow_factor
 mouse.move(x,y)
@@ -37,14 +38,18 @@ while 1:
         y-=dy
     mouse.move(x,y)
     
-    if stick.get_button(0) == 1 and last_state[0] == 0:
+    current_state=[stick.get_button(0),0]
+    if current_state[0] and last_state[0] == 0:
         mouse.press(button='left')
-    if stick.get_button(0) == 0 and last_state[0] == 1:
+        # print('press')
+    if current_state[0] == 0 and last_state[0] == 1:
         mouse.release(button='left')
+        # print('release')
+    last_state=current_state.copy()
     # for i in range(stick.get_numbuttons()):
         # if stick.get_button(i) == 1:
             # print(i)
     # value=stick.get_axis(axis)
     # value=stick.get_hat(axis)
     # if value:
-        # print(value)
+        # print(value)  
