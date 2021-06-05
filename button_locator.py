@@ -24,3 +24,6 @@ while 1:
     for i in range(stick.get_numbuttons()):
         if stick.get_button(i) == 1:
             print(i)
+    value=stick.get_axis(axis)
+    if value:
+        print(value)  

@@ -1,8 +1,8 @@
 from adafruit_hid.mouse import Mouse
-# import usb_hid
+import usb_hid
 import time
 
-mouse = Mouse()
+mouse = Mouse(usb_hid.devices)
 
 while(True):
     mouse.move(x=50, y=50)
