@@ -2,6 +2,10 @@
 import pygame
 # import mouse
 
+#* installed these to get the code to work
+    # sudo apt-get install python3-sdl2
+    # sudo apt-get install libsdl2-mixer-2.0-0
+
 
 pygame.init()
 
