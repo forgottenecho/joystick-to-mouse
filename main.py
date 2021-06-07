@@ -1,6 +1,7 @@
 from pygame import joystick, event, JOYAXISMOTION
 import pygame
-import mouse
+# import mouse
+
 
 pygame.init()
 
@@ -18,7 +19,7 @@ y=0
 last_state=[0,0]
 slow_factor=.1
 threshold=.1*slow_factor
-mouse.move(x,y)
+#mouse.move(x,y)
 while 1:
     e=event.get()
     # if e.type == JOYAXISMOTION:
@@ -29,21 +30,21 @@ while 1:
         dx=0
     if abs(dy) < threshold:
         dy=0
-    # print('{}, {}'.format(x,y))
     x+=dx
     y+=dy
     if x < 0:
         x-=dx
     if y < 0:
         y-=dy
-    mouse.move(x,y)
+    print('{}, {}'.format(x,y))
+    #mouse.move(x,y)
     
     current_state=[stick.get_button(0),0]
     if current_state[0] and last_state[0] == 0:
-        mouse.press(button='left')
+        #mouse.press(button='left')
         # print('press')
     if current_state[0] == 0 and last_state[0] == 1:
-        mouse.release(button='left')
+        #mouse.release(button='left')
         # print('release')
     last_state=current_state.copy()
     # for i in range(stick.get_numbuttons()):
